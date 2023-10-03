@@ -1,2 +1,2 @@
-# portScanner
-python port scanner
+# portScanner <br />
+***(python port scanner based on sockets)*** <br />
