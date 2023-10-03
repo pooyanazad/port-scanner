@@ -10,6 +10,8 @@ $ python3 portScanner.py google.com 1-50 --timeout 1 <br />
 <br />
 v2:<br />
 Ask target as prompt<br />
+Example:<br />
+portScanner.py <br />
 <br />
 <br />
 pooyan.azadparvar@gmail.com for any question 
