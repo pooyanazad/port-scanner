@@ -1,4 +1,5 @@
 import socket
+import argparse
 import concurrent.futures
 
 def scan_port(ip, port, timeout):
@@ -21,22 +22,21 @@ def scan_ip(ip, ports, timeout):
             port = future_to_port[future]
             future.result()  # Get the result or handle exceptions here
 
-def get_user_input():
-    target_ip = input("Enter the target IP address or hostname: ")
-    port_range = input("Enter port range (e.g., 1-1000): ")
-    timeout = float(input("Enter timeout for each port scan (in seconds): "))
-    return target_ip, port_range, timeout
-
 if __name__ == "__main__":
-    target_ip, port_range, timeout = get_user_input()
+    parser = argparse.ArgumentParser(description="Multi-threaded Python Port Scanner")
+    parser.add_argument("target_ip", help="Target IP address to scan")
+    parser.add_argument("port_range", help="Port range to scan (e.g., 1-1000)")
+    parser.add_argument("--timeout", type=float, default=1.0, help="Timeout for each port scan (in seconds)")
+
+    args = parser.parse_args()
 
     try:
-        target_ip = socket.gethostbyname(target_ip)
+        target_ip = socket.gethostbyname(args.target_ip)
     except socket.gaierror:
         print("Invalid target IP address.")
         sys.exit(1)
 
-    start_port, end_port = map(int, port_range.split('-'))
+    start_port, end_port = map(int, args.port_range.split('-'))
     ports_to_scan = range(start_port, end_port + 1)
 
-    scan_ip(target_ip, ports_to_scan, timeout)
+    scan_ip(target_ip, ports_to_scan, args.timeout)
