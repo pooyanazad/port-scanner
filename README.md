@@ -14,7 +14,7 @@ Example:<br />
 portScanner.py <br />
 <br />
 with gui:<br />
-Is simple easy to use.<br />
+Is simple easy to use, just run (python3 portScannerWithGui.py).<br />
 <br />
 <br />
 pooyan.azadparvar@gmail.com for any question 
