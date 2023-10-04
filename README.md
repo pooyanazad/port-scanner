@@ -12,6 +12,7 @@ v2:<br />
 Ask target as prompt<br />
 Example:<br />
 portScanner.py <br />
+<br />
 with gui:<br />
 Is simple easy to use.<br />
 <br />
